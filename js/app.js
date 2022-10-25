@@ -14,7 +14,7 @@
 
 //array of the pictures for the game
 
-const cards = document.querySelectorAll('.card');
+const cards = document.getElementsByClassName('card');
 
 let memoryPictures = [
     'https://picsum.photos/seed/pic-1/300/300',
@@ -35,9 +35,9 @@ let memoryPictures = [
     'https://picsum.photos/seed/pic-8/300/300'
 ];
 for(i = 0; i < cards.length; i++){
+  console.log(cards)
     cards[i].addEventListener('click', (e) => {
-    // console.log(`you have clicked card number ${i}`)
-    console.log(i)
+    alert(`you have clicked card number ${i}`);
   });
-  console.log(i);
+
 }
