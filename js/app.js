@@ -34,10 +34,10 @@ let memoryPictures = [
     'https://picsum.photos/seed/pic-7/300/300',
     'https://picsum.photos/seed/pic-8/300/300'
 ];
-for(i = 0; i < cards.length; i++){
-  console.log(cards)
-    cards[i].addEventListener('click', (e) => {
-    alert(`you have clicked card number ${i}`);
-  });
 
-}
+for(i = 0; i < cards.length; i++){
+  let n = i;
+    cards[i].addEventListener('click', (e) => {
+    alert(`you have clicked card number ${n}`);
+  });
+};
