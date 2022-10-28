@@ -58,6 +58,7 @@ div{
 figure{
     position: relative;
     user-select: none;
+    overflow: hidden;
 }
 figure::after{
     content: '';
@@ -68,4 +69,13 @@ figure::after{
     z-index: 5;
     top: 0;
     left: 0;
+}
+figure.open::after{
+    display: none;
+}
+figure.matched::after{
+    display: none;
+}
+figure.matched{
+    border: .4rem solid #E8C547;
 }

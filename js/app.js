@@ -35,10 +35,26 @@ let memoryPictures = [
     'https://picsum.photos/seed/pic-8/300/300'
 ];
 
+let cardsOpen = document.getElementsByClassName('open');
+score = 0;
+
+let picname = memoryPictures[1].slice(27, 32);
 for(i = 0; i < cards.length; i++){
   let n = i;
     cards[i].addEventListener('click', (e) => {
-    alert(`you have clicked card number ${n}`);
+    // alert(`you have clicked card number ${n}`);
+    cards[n].classList.add('open')
+    //if the 2 cards match remove open and but match class
+      if(cardsOpen.length == 2){
+        console.log('open')
+        if(cardsOpen[0].childNodes[1].src == cardsOpen[1].childNodes[1].src){
+          console.log(2)
+        }
+      }
+
+
   });
   cards[n].firstElementChild.src = memoryPictures[n];
+  let picname = memoryPictures[n].slice(27, 32);
+  cards[n].classList.add(picname);
 };
