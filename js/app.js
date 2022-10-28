@@ -35,12 +35,18 @@ let memoryPictures = [
     'https://picsum.photos/seed/pic-8/300/300'
 ];
 
+
+
 let cardsOpen = document.getElementsByClassName('open');
 let score = 0;
 let scoreKeeper = document.getElementById('score');
 let cardsMatched = document.getElementsByClassName('matched') ;
 
-let picname = memoryPictures[1].slice(27, 32);
+function shuffledArray(){
+  memoryPictures.sort((a, b) => 0.5 - Math.random());
+};
+shuffledArray();
+
 for(i = 0; i < cards.length; i++){
   let n = i;
     cards[i].addEventListener('click', (e) => {
@@ -77,13 +83,16 @@ for(i = 0; i < cards.length; i++){
   cards[n].classList.add(picname);
 };
 
+
 let newGameBtn = document.getElementById('new-game');
 newGameBtn.addEventListener('click', () =>{
+  shuffledArray();
+  score = 0;
+  scoreKeeper.innerHTML = score;
+  confetti.stop();
   for(i = 0; i < cards.length; i++){
     cards[i].classList.remove('matched')
-    score = 0;
-    scoreKeeper.innerHTML = score;
-    confetti.stop();
     document.getElementById('won').classList.remove('done');
+    cards[i].firstElementChild.src = memoryPictures[i];
   }
 });
