@@ -40,4 +40,5 @@ for(i = 0; i < cards.length; i++){
     cards[i].addEventListener('click', (e) => {
     alert(`you have clicked card number ${n}`);
   });
+  cards[n].firstElementChild.src = memoryPictures[n];
 };
