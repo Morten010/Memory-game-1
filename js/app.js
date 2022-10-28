@@ -36,7 +36,8 @@ let memoryPictures = [
 ];
 
 let cardsOpen = document.getElementsByClassName('open');
-score = 0;
+let score = 0;
+let scoreKeeper = document.getElementById('score');
 
 let picname = memoryPictures[1].slice(27, 32);
 for(i = 0; i < cards.length; i++){
@@ -46,10 +47,24 @@ for(i = 0; i < cards.length; i++){
     cards[n].classList.add('open')
     //if the 2 cards match remove open and but match class
       if(cardsOpen.length == 2){
-        console.log('open')
         if(cardsOpen[0].childNodes[1].src == cardsOpen[1].childNodes[1].src){
-          console.log(2)
-        }
+          cardsOpen[1].classList.add('matched');
+          cardsOpen[0].classList.add('matched');
+
+          cardsOpen[1].classList.remove('open');
+          cardsOpen[0].classList.remove('open');
+          
+          score += 20
+          
+        } else{
+          function resetPair() {
+            cardsOpen[0].classList.remove('open');
+            cardsOpen[0].classList.remove('open');
+            score -= 5
+          };
+          setTimeout(resetPair, 500)
+        };
+        scoreKeeper.innerHTML = score;
       }
 
 
