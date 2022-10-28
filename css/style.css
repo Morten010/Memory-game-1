@@ -65,7 +65,7 @@ figure::after{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: antiquewhite;
+    background-color: #0F8B8D;
     z-index: 5;
     top: 0;
     left: 0;

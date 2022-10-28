@@ -55,19 +55,36 @@ for(i = 0; i < cards.length; i++){
           cardsOpen[0].classList.remove('open');
           
           score += 20
-          
+          scoreKeeper.innerHTML = score;
         } else{
           function resetPair() {
             cardsOpen[0].classList.remove('open');
             cardsOpen[0].classList.remove('open');
-            score -= 5
+            score -= 10
+            scoreKeeper.innerHTML = score;
           };
           setTimeout(resetPair, 500)
         };
-        scoreKeeper.innerHTML = score;
+        if(cards[0].classList('matched'),
+          cards[1].classList('matched'),
+          cards[2].classList('matched'),
+          cards[3].classList('matched'),
+          cards[4].classList('matched'),
+          cards[5].classList('matched'),
+          cards[6].classList('matched'),
+          cards[7].classList('matched'),
+          cards[8].classList('matched'),
+          cards[9].classList('matched'),
+          cards[10].classList('matched'),
+          cards[11].classList('matched'),
+          cards[12].classList('matched'),
+          cards[13].classList('matched'),
+          cards[14].classList('matched'),
+          cards[15].classList('matched')){
+          
+        }
+
       }
-
-
   });
   cards[n].firstElementChild.src = memoryPictures[n];
   let picname = memoryPictures[n].slice(27, 32);
