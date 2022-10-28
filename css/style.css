@@ -12,10 +12,12 @@ html {
     font-family: 'Noto Sans', sans-serif;
 }
 body{
-    background-color: #DAD2D8
+    position: relative;
+    padding: 2rem;
+    background-color: #111111;
 }
 section{
-    background-color: #143642;
+    background-color: #2a2a2a;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
@@ -23,12 +25,13 @@ section{
     height: 80vh;
     aspect-ratio: 1/1;
     max-width: 1080px;
-    margin: 2rem auto;
+    margin: 0rem auto 2rem;
     position: relative;
 }
 img{
-    background-color: #0F8B8D;
+    background-color: #121212;
     width: 100%;
+    height: 100%;
     aspect-ratio: 1/1;
 }
 div{
@@ -47,13 +50,24 @@ div button{
     padding: 1rem 2rem;
     font-weight: 500;
 
-    background-color: #0F8B8D;
-    border: 2px solid #143642;
-    color: #143642;
+    background-color: transparent;
+    color: #74ee15;
+    text-shadow: 
+    0 0 0.3rem white,
+    0 0 0.5rem #74ee15;
+    border: .4rem solid #74ee15;
+    box-shadow: inset 0 0 0.5rem 0 #74ee15, 0 0 1rem 0 #74ee15;
+    user-select: none;
+    cursor: pointer;
 }
 div{
-    color: #143642;
+    z-index: 20;
+    color: #74ee15;
+    text-shadow: 
+    0 0 0.2rem white,
+    0 0 0.5rem #74ee15;
     font-size: 1.6rem;
+    user-select: none;
 }
 figure{
     position: relative;
@@ -65,7 +79,7 @@ figure::after{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #0F8B8D;
+    background-color: #101010;
     z-index: 5;
     top: 0;
     left: 0;
@@ -77,5 +91,27 @@ figure.matched::after{
     display: none;
 }
 figure.matched{
-    border: .4rem solid #E8C547;
+    border: .3rem solid #74ee15;
+    box-shadow: inset 0 0 0.5rem 0 #74ee15, 0 0 1rem 0 #74ee15;
+}
+#won{
+    position: absolute;
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    place-content: center;
+    z-index: 10;
+    display: none;
+}
+#won h2{
+    background-color: #101010;
+    padding: 1rem 2rem ;
+    border: .3rem solid #74ee15;
+    box-shadow: inset 0 0 0.5rem 0 #74ee15, 0 0 1rem 0 #74ee15;
+}
+#won.done{
+    display: grid;
 }

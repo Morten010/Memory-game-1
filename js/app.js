@@ -38,12 +38,12 @@ let memoryPictures = [
 let cardsOpen = document.getElementsByClassName('open');
 let score = 0;
 let scoreKeeper = document.getElementById('score');
+let cardsMatched = document.getElementsByClassName('matched') ;
 
 let picname = memoryPictures[1].slice(27, 32);
 for(i = 0; i < cards.length; i++){
   let n = i;
     cards[i].addEventListener('click', (e) => {
-    // alert(`you have clicked card number ${n}`);
     cards[n].classList.add('open')
     //if the 2 cards match remove open and but match class
       if(cardsOpen.length == 2){
@@ -65,28 +65,25 @@ for(i = 0; i < cards.length; i++){
           };
           setTimeout(resetPair, 500)
         };
-        if(cards[0].classList('matched'),
-          cards[1].classList('matched'),
-          cards[2].classList('matched'),
-          cards[3].classList('matched'),
-          cards[4].classList('matched'),
-          cards[5].classList('matched'),
-          cards[6].classList('matched'),
-          cards[7].classList('matched'),
-          cards[8].classList('matched'),
-          cards[9].classList('matched'),
-          cards[10].classList('matched'),
-          cards[11].classList('matched'),
-          cards[12].classList('matched'),
-          cards[13].classList('matched'),
-          cards[14].classList('matched'),
-          cards[15].classList('matched')){
-          
-        }
-
+      }
+      if(cardsMatched.length === 16){
+        console.log('Congratulation you won');
+        document.getElementById('won').classList.add('done');
+        confetti.start();
       }
   });
   cards[n].firstElementChild.src = memoryPictures[n];
   let picname = memoryPictures[n].slice(27, 32);
   cards[n].classList.add(picname);
 };
+
+let newGameBtn = document.getElementById('new-game');
+newGameBtn.addEventListener('click', () =>{
+  for(i = 0; i < cards.length; i++){
+    cards[i].classList.remove('matched')
+    score = 0;
+    scoreKeeper.innerHTML = score;
+    confetti.stop();
+    document.getElementById('won').classList.remove('done');
+  }
+});
